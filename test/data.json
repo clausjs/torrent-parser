@@ -524,5 +524,285 @@
         "codec": "XViD",
         "quality": "HDRip",
         "hardcoded": true
+    },
+    {
+        "name": "24 - S01E04 - x264 - dilpill.mkv.torrent",
+        "title": "24",
+        "season": 1,
+        "episode": 4,
+        "codec": "x264",
+        "container": "mkv",
+        "group": "dilpill"
+    },
+    {
+        "name": "A.Bugs.Life.1998.iNTERNAL.HDR.2160p.WEB.H265-WATCHER.torrent",
+        "title": "A Bugs Life",
+        "year": 1998,
+        "resolution": "2160p",
+        "quality": "WEB",
+        "codec": "H265",
+        "group": "WATCHER"
+    },
+    {
+        "name": "American Horror Story S08 br 10bit hevc-d3g.torrent",
+        "title": "American Horror Story",
+        "season": 8,
+        "codec": "hevc",
+        "group": "d3g"
+    },
+    {
+        "name": "Annabelle.Comes.Home.2019.MULTi.UHD.2160p.HDR.WEB-Rip.DDP.5.1.HEVC-DDR[EtHD].torrent",
+        "title": "Annabelle Comes Home",
+        "year": 2019,
+        "resolution": "2160p",
+        "quality": "WEB-Rip",
+        "audio": "DDP.5.1",
+        "codec": "HEVC",
+        "group": "DDR[EtHD]"
+    },
+    {
+        "name": "American Dad - Season 10 - 1080P - WEB-DL - X265-HEVC - O69.torrent",
+        "title": "American Dad",
+        "season": 10,
+        "resolution": "1080P",
+        "quality": "WEB-DL",
+        "codec": "X265",
+        "group": "O69"
+    },
+    {
+        "name": "American Dad Season 15.torrent",
+        "title": "American Dad",
+        "season": 15
+    },
+    {
+        "name": "Girl Meets World (S02) Season 2 COMPLETE 720p WEB-DL DD5.1 H.264-TVSmash.torrent",
+        "title": "Girl Meets World",
+        "season": 2,
+        "resolution": "720p",
+        "quality": "WEB-DL",
+        "audio": "DD5.1",
+        "codec": "H.264",
+        "group": "TVSmash"
+    },
+    {
+        "name": "3 Ninjas Kick Back (1994) (1080p AMZN WEB-DL x265 HEVC 10bit EAC3 2.0 FreetheFish).torrent",
+        "title": "3 Ninjas Kick Back",
+        "year": 1994,
+        "resolution": "1080p",
+        "quality": "WEB-DL",
+        "codec": "x265",
+        "audio": "EAC3 2.0"
+    },
+    {
+        "name": "24 S01E03 2 00 A M - 3 00 A M 1080p DSNP WEB-DL DDP2 0 H 264-FLUX.torrent",
+        "title": "24",
+        "season": 1,
+        "episode": 3,
+        "resolution": "1080p",
+        "quality": "WEB-DL",
+        "audio": "DDP2 0",
+        "codec": "H 264",
+        "group": "FLUX"
+    },
+    {
+        "name": "13 Reasons Why S04 1080p NF WEBRip DD+ 5 1 x265-edge2020.torrent",
+        "title": "13 Reasons Why",
+        "season": 4,
+        "resolution": "1080p",
+        "quality": "WEBRip",
+        "audio": "DD+ 5 1",
+        "codec": "x265",
+        "group": "edge2020"
+    },
+    {
+        "name": "A Quiet Place Day One 2024 1080p TELESYNC x264 COLLECTiVE.torrent",
+        "title": "A Quiet Place Day One",
+        "year": 2024,
+        "resolution": "1080p",
+        "quality": "TELESYNC",
+        "codec": "x264",
+        "group": "COLLECTiVE"
+    },
+    {
+        "name": "You.Only.Live.Twice.1967.1080p.USA.Blu-ray.Remux.AVC.DTS-HD.MA.5.1-AR.mkv.torrent",
+        "title": "You Only Live Twice",
+        "year": 1967,
+        "resolution": "1080p",
+        "quality": "Blu-ray",
+        "codec": "AVC",
+        "transcoding": "Remux",
+        "audio": "DTS-HD.MA.5.1",
+        "container": "mkv",
+        "group": "AR"
+    },
+    {
+        "name": "Zombie.Strippers.2008.1080p.BluRay.Remux.AVC.TrueHD5.1-PTP.mkv.torrent",
+        "title": "Zombie Strippers",
+        "year": 2008,
+        "quality": "BluRay",
+        "codec": "AVC",
+        "audio": "TrueHD5.1",
+        "container": "mkv",
+        "group": "PTP"
+    },
+    {
+        "name": "30 Days of Night 2007 (1080p Bluray x265 HEVC 10bit AAC 5.1 Tigole).torrent",
+        "title": "30 Days of Night",
+        "year": 2007,
+        "resolution": "1080p",
+        "quality": "Bluray",
+        "codec": "x265",
+        "audio": "AAC 5.1"
+    },
+    {
+        "name": "American Dad S16E16 Pride Before the Fail 1080p AMZN Webrip x265 EAC3 5.1 - Goki.mkv.torrent",
+        "title": "American Dad",
+        "season": 16,
+        "episode": 16,
+        "quality": "Webrip",
+        "audio": "EAC3 5.1",
+        "codec": "x265",
+        "group": "Goki",
+        "container": "mkv"
+    },
+    {
+        "name": "Aliens.1986.Special.Edition.1080P.INTERNAL.Bluray.HDRX.DTS-HD.5.1.HEVC.X265-FZHD.torrent",
+        "title": "Aliens",
+        "year": 1986,
+        "resolution": "1080P",
+        "quality": "Bluray",
+        "audio": "DTS-HD.5.1",
+        "codec": "X265",
+        "group": "FZHD"
+    },
+    {
+        "name": "Example.S03.torrent",
+        "title": "Example",
+        "season": 3
+    },
+    {
+        "name": "Example.[S03].torrent",
+        "title": "Example",
+        "season": 3
+    },
+    {
+        "name": "Example.1080p.torrent",
+        "title": "Example",
+        "resolution": "1080p"
+    },
+    {
+        "name": "Example.720p",
+        "title": "Example",
+        "resolution": "720p"
+    },
+    {
+        "name": "Example.1080p.WEB.h.265-GROUP.TORRENT",
+        "title": "Example",
+        "resolution": "1080p",
+        "quality": "WEB",
+        "codec": "h.265",
+        "group": "GROUP"
+    },
+    {
+        "name": "Example.1080p.HDTS.H 265-GROUP.torrent",
+        "title": "Example",
+        "resolution": "1080p",
+        "quality": "HDTS",
+        "codec": "H 265",
+        "group": "GROUP"
+    },
+    {
+        "name": "Example.1080p.WEB.E-AC3.5.1.HEVC-GROUP.torrent",
+        "title": "Example",
+        "resolution": "1080p",
+        "quality": "WEB",
+        "audio": "E-AC3.5.1",
+        "codec": "HEVC",
+        "group": "GROUP"
+    },
+    {
+        "name": "Example.1080p.WEB.DDP.x264-GROUP.torrent",
+        "title": "Example",
+        "audio": "DDP",
+        "codec": "x264",
+        "group": "GROUP"
+    },
+    {
+        "name": "Example.1080p.BluRay.TrueHD.Atmos.7.1.HEVC-GROUP.torrent",
+        "title": "Example",
+        "audio": "TrueHD.Atmos.7.1",
+        "codec": "HEVC",
+        "group": "GROUP"
+    },
+    {
+        "name": "Example.1080p.AAC7.1.x265-GROUP.torrent",
+        "title": "Example",
+        "audio": "AAC7.1",
+        "codec": "x265",
+        "group": "GROUP"
+    },
+    {
+        "name": "House.Hunters.S160E01.Tiny.Virginia.Vineyard.Home.WEB.x264-CAFFEiNE[TGx].torrent",
+        "title": "House Hunters",
+        "season": 160,
+        "episode": 1,
+        "quality": "WEB",
+        "codec": "x264",
+        "group": "CAFFEiNE[TGx]"
+    },
+    {
+        "name": "Whose.Line.Is.It.Anyway.US.S18E03.720p.WEB.h264-WEBTUBE[TGx].torrent",
+        "title": "Whose Line Is It Anyway US",
+        "season": 18,
+        "episode": 3,
+        "quality": "WEB",
+        "codec": "h264"
+    },
+    {
+        "name": "Whose Line Is It Anyway US S13E03 Candice Patton 720p CW WEB-DL AAC2 0 x264-monkee.torrent",
+        "title": "Whose Line Is It Anyway US",
+        "season": 13,
+        "episode": 3,
+        "audio": "AAC2 0",
+        "quality": "WEB-DL"
+    },
+    {
+        "name": "Die.Hard.3.1995.1080p.BDRip.AVC.FLAC5.1.2h08m31s.DVD9-Asmo.torrent",
+        "title": "Die Hard 3",
+        "year": 1995,
+        "quality": "BDRip",
+        "codec": "AVC",
+        "audio": "FLAC5.1"
+    },
+    {
+        "name": "Anchorman.The.Legend.Of.Ron.Burgundy.2004.UNRATED.1080p.HDDVD.x264-FSiHD.torrent",
+        "title": "Anchorman The Legend Of Ron Burgundy",
+        "quality": "HDDVD",
+        "codec": "x264"
+    },
+    {
+        "name": "District 9 2009.MULTI.2160p.HDR.UHDRip.HEVC.DTS-HD.MA.5.1-DDR.torrent",
+        "title": "District 9",
+        "quality": "UHDRip",
+        "codec": "HEVC",
+        "audio": "DTS-HD.MA.5.1"
+    },
+    {
+        "name": "Lethal.Weapon.1987.1080p.WEB-DL.ENG.LATINO.DD5.1.MKV-BEN.THE.MEN.torrent",
+        "title": "Lethal Weapon",
+        "year": 1987,
+        "quality": "WEB-DL",
+        "audio": "DD5.1",
+        "container": "MKV",
+        "group": "BEN.THE.MEN"
+    },
+    {
+        "name": "Adam.Ruins.Everything.S02.720p.HDTVx264-W4F.torrent",
+        "title": "Adam Ruins Everything",
+        "season": 2,
+        "resolution": "720p",
+        "quality": "HDTV",
+        "codec": "x264",
+        "group": "W4F"
     }
 ]

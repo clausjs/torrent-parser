@@ -67,3 +67,44 @@ torrents.forEach(function(torrent) {
     test.end();
   });
 });
+
+tape('torrent filenames preserve release metadata', function(test) {
+  torrents.forEach(function(torrent) {
+    const releaseName = torrent.name.replace(/\.torrent$/i, '');
+    test.deepEqual(ptn(releaseName + '.torrent'), ptn(releaseName), releaseName);
+  });
+  test.deepEqual(ptn('Example.S01E02.1080p.WEB.H265-GROUP.mkv.torrent'), {
+    season: 1,
+    episode: 2,
+    resolution: '1080p',
+    quality: 'WEB',
+    codec: 'H265',
+    group: 'GROUP',
+    container: 'mkv',
+    title: 'Example'
+  }, 'media extensions do not leave group names in excess');
+  test.equal(ptn('Example.torrent.2024.1080p').title, 'Example torrent',
+    'only a terminal torrent extension is removed');
+  test.end();
+});
+
+tape('metadata requires token boundaries', function(test) {
+  [
+    ['Example720p', 'resolution'],
+    ['Example.720pMkv.Com', 'resolution'],
+    ['Example.1080pixels', 'resolution'],
+    ['Example.S0123', 'season'],
+    ['ExampleS01', 'season'],
+    ['Example.Season 1234', 'season'],
+    ['WEBSter.2024', 'quality'],
+    ['CAMpus.2024', 'quality'],
+    ['Example.1080p.DTS-HD.MA.5.1', 'quality'],
+    ['Example.1080p.x2650', 'codec'],
+    ['Example.1080p.Ha264', 'codec'],
+    ['Example.1080p.HEVCish', 'codec'],
+    ['Example.1080p.EAC3PO', 'audio']
+  ].forEach(function(sample) {
+    test.equal(ptn(sample[0])[sample[1]], undefined, sample[0] + ': no ' + sample[1]);
+  });
+  test.end();
+});

@@ -25,7 +25,8 @@ Core.prototype.constructor = EventEmitter;
 
 Core.prototype.exec = function(name) {
   this.emit('setup', {
-    name: name
+    // A saved torrent filename wraps the release name, including any media extension.
+    name: name.replace(/\.torrent$/i, '')
   });
   this.emit('start');
   this.emit('end');

@@ -3,21 +3,22 @@
 var core = require('../core');
 
 /**
- * Pattern should contain either none or two capturing groups.
+ * Pattern should contain either none or two capturing groups (per season alternative).
  * In case of two groups - 1st is raw, 2nd is clean.
  */
 var patterns = {
-  season: /([Ss]?([0-9]{1,2}))[Eex]|((?<=[\.\- ])[Ss]{1}([0-9]{1,2})(?=[\.\- ]))/,
+  season: /(?<![a-z0-9])((?:s|season[. _-]+)?([0-9]{1,3}))(?=[ex][0-9])|(?<![a-z0-9])((?:s|season[. _-]+)([0-9]{1,3}))(?![a-z0-9])/i,
   episode: /([Eex]{1}([0-9]{2})(?:[^0-9]|$))/,
   format: /NTSC|PAL|SECAM/,
   year: /([\[\(]?((?:19[0-9]|20[012])[0-9])[\]\)]?)/,
-  resolution: /(([0-9]{3,4}p))[^M]/,
-  quality: /(?:PPV.)?[HP]DTV|(?:HD)?CAM|B[rR]Rip|(?:PPV )?WEB-?DL(?: DVDRip)?|TS|H[dD]Rip|DVDRip|DVDRiP|DVDRIP|DVD[.\- ]?(?:5|9|10)?|CamRip|W[EB]B[rR]ip|WEB|[Bb]lu[Rr]ay|DvDScr|hdtv/,
-  codec: /xvid|x264|x265|h.?264|AVC/i,
-  audio: /MP3|DDP?[+\.]?[57].?1|DD2.?0|Dual[- ]Audio|LiNE|DTS(?:[.\- ]?)?(?:[Hh][Dd][.\- ]?)?(?:[Mm][Aa][.\- ]?)?(?:[567].1)?|AAC(?:.?2.0)?|FLAC(?:.?2.0)?|AC3(?:.5.1)?|(?:True[Hh][Dd].)?Atmos[. ]?(?:[579]\.1)?/,
+  resolution: /(?<![a-z0-9])(([0-9]{3,4}p))(?![a-z0-9])/i,
+  quality: /(?<![a-z0-9])(?:(?:PPV[. ])?[HP]DTV|(?:HD)?CAM|B[RD]Rip|(?:PPV )?WEB-?DL(?: DVDRip)?|HDTS|TELESYNC|TS|U?HDRip|HDDVD|DVDRip|DVD[.\- ]?(?:5|9|10)?|CamRip|W[EB]B-?Rip|WEB|Blu-?Ray|DvDScr)(?=$|[^a-z0-9]|x26[45](?![a-z0-9]))/i,
+  codec: /(?:(?<![a-z0-9])|(?<=HDTV))(?:xvid|x26[45]|h[. ]?26[45]|AVC)(?![a-z0-9])/i,
+  audio: /(?<![a-z0-9])(?:MP3|DDP?[+.]?[. -]?[257][. ]?[01]|DDP|Dual[- ]Audio|DTS(?:[.\- ]?)?(?:HD[.\- ]?)?(?:MA[.\- ]?)?(?:[567][. ]1)?|AAC(?:[. -]?[25678][. ][01])?|FLAC(?:[. ]?[25678][. ][01])?|E-?AC3(?:[. -]?[25678][. ][01])?|AC3(?:[. -]?[25678][. ][01])?|TrueHD(?:[. ]?[257][. ][01])?(?:[. ]Atmos(?:[. ]?[579][. ]1)?)?|Atmos(?:[. ]?[579][. ]1)?)(?![a-z0-9])/i,
   transcoding: /REMUX/i,
-  container: /[\. ](MKV|AVI)[ $]?/i,
+  // Remove the full group before its container so excess does not retain the group.
   group: /(- ?([^-]+(?:-={[^-]+-?$)?))$/,
+  container: /([. ](MKV|AVI))(?=$|[. \]\)-])/i,
   region: /R[0-9]/,
   extended: /EXTENDED/,
   hardcoded: /HC/,
@@ -51,7 +52,16 @@ core.on('start', function() {
   var key, match, index, clean, part;
 
   for(key in patterns) {
-    if(!(match = torrent.name.match(patterns[key]))) {
+    match = torrent.name.match(patterns[key]);
+    // Prefer the explicit encoder/codec when a release also includes the HEVC alias.
+    if(!match && key === 'codec') {
+      match = torrent.name.match(/(?<![a-z0-9])HEVC(?![a-z0-9])/i);
+    }
+    // LiNE is case-sensitive so titles such as Whose Line Is It Anyway stay intact.
+    if(!match && key === 'audio') {
+      match = torrent.name.match(/(?<![a-z0-9])LiNE(?![a-z0-9])/);
+    }
+    if(!match) {
       continue;
     }
 
@@ -60,8 +70,8 @@ core.on('start', function() {
       clean: match[1] ? 2 : 0
     };
 
-    if (key === 'container' && !match[index.clean]) {
-      index.clean = index.raw;
+    if(key === 'season' && match[3]) {
+      index = { raw: 3, clean: 4 };
     }
 
     if(types[key] && types[key] === 'boolean') {
@@ -71,15 +81,6 @@ core.on('start', function() {
       clean = match[index.clean];
 
       if(types[key] && types[key] === 'integer') {
-        /**
-         * Some torrents are entire seasons and are named with <Show Name> S01
-         * The old regex would only capture seasons when there was an included episode
-         * The new regex will capture the S01 but needs to trim the S before parsing
-         */
-        if (key === 'season' && clean[0].match(/[Ss]/)) {
-          clean = clean.slice(1);
-        }
-
         clean = parseInt(clean, 10);
       }
     }

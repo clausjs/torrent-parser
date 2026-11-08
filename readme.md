@@ -3,6 +3,12 @@
 
 Parses torrent name of a movie or TV show.
 
+Accepts release names and saved `.torrent` filenames. The outer `.torrent`
+extension is ignored; media extensions such as `.mkv` are still returned as
+`container`. Metadata strings preserve their spelling and casing in the name.
+Season parsing supports `S01E02`, `1x02`, standalone `S01` (including bracketed
+tags), and `Season 1`, with up to three digits in the season number.
+
 **Possible parts extracted:**
 
 - audio
@@ -80,28 +86,37 @@ ptn('AL.288-1.2014.HC.HDRip.XViD.AC3-juggs[ETRG]');
 | CAM |
 | HDCAM |
 | BrRip |
+| BDRip |
 | WEB-DL |
 | TS |
+| HDTS / TELESYNC |
 | HDRip |
+| UHDRip |
+| HDDVD |
 | DVDRip |
 | DVD 5/9/and 10 |
 | CamRip |
-| WebRip |
+| WebRip / WEB-Rip |
 | WEB |
-| Bluray |
+| Bluray / Blu-ray |
 | DVDScr |
+
+Video codecs include XviD, x264, x265, H264/H.264/H 264,
+H265/H.265/H 265, AVC, and HEVC. HEVC is used as a fallback when no explicit
+encoder or codec tag is present.
 
 | Supported audio [codecs](https://en.wikipedia.org/wiki/Audio_codec) |
 | ------------------- |
 | MP3 |
 | DDP/DDP5.1/DDP7.1 |
-| DD2 |
+| DD/DDP 2.0, 5.1, 7.1 (including space-separated channels) |
 | Dual Audio |
 | LiNE |
 | DTS/DTS HD MA 5/6/7.1 |
-| AAC/AAC 2.0 |
-| FLAC/FLAC 2.0 |
-| AC3/AC3 5.1 |
+| AAC (including channel layouts such as 2.0, 5.1, and 7.1) |
+| FLAC (including channel layouts) |
+| AC3/EAC3/E-AC3 (including channel layouts) |
+| TrueHD / TrueHD 5.1 / TrueHD 7.1 |
 | True HD Atmos 5/7/9.1 |
 
 | Supported [transcoding](https://www.reddit.com/r/radarr/comments/6bg9k1/whats_the_diff_between_bluray_and_remux/) strings |
